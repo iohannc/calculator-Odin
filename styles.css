@@ -1,0 +1,85 @@
+:root {
+  --button-bg-color: rgb(233, 233, 233);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+
+.container {
+  height: 100vh;
+  border: 1px solid brown;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ .result {
+  border: 1px solid black;
+  grid-area: result;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  padding: 15px;
+  font-size: 2em;
+  background-color: rgba(228, 228, 228, 0.356);
+} 
+
+.nums {
+  grid-area: nums;
+  display: inherit;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.num-zero {
+  grid-area: num-zero;
+}
+
+.operators {
+  grid-area: operators;
+  display: inherit;
+} 
+
+.operators > div {
+  background-color: rgb(233, 233, 233);
+}
+
+.equals {
+  grid-area: equals;
+}
+
+.clear {
+  grid-area: clear;
+}
+
+.delete {
+  grid-area: delete;
+}
+
+.calculator {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(4, 85px);
+  grid-template-rows: repeat(6, 85px);
+  grid-template-areas: 
+  "result result result result"
+  "clear clear delete equals"
+  "nums nums nums operators"
+  "nums nums nums operators"
+  "nums nums nums operators"
+  "num-zero num-zero num-zero operators"
+  ;
+}
+
+.btn {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--button-bg-color);
+}
+
