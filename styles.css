@@ -1,5 +1,6 @@
 :root {
   --button-bg-color: rgb(233, 233, 233);
+  --operator-bg-color: rgb(204, 203, 203);
 }
 
 html {
@@ -10,9 +11,12 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  background-color: rgb(144, 167, 158);
+}
+
 .container {
   height: 100vh;
-  border: 1px solid brown;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +30,7 @@ html {
   align-items: end;
   padding: 15px;
   font-size: 2em;
-  background-color: rgba(228, 228, 228, 0.356);
+  background-color: rgb(223, 230, 228);
 } 
 
 .nums {
@@ -39,25 +43,37 @@ html {
   grid-area: num-zero;
 }
 
+.btn {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--button-bg-color);
+}
+
 .operators {
   grid-area: operators;
   display: inherit;
 } 
 
 .operators > div {
-  background-color: rgb(233, 233, 233);
+  background-color: var(--operator-bg-color);
 }
 
 .equals {
   grid-area: equals;
+  background-color: var(--operator-bg-color);
+ 
 }
 
 .clear {
   grid-area: clear;
+  background-color: var(--operator-bg-color);
 }
 
 .delete {
   grid-area: delete;
+  background-color: var(--operator-bg-color);
 }
 
 .calculator {
@@ -75,11 +91,4 @@ html {
   ;
 }
 
-.btn {
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--button-bg-color);
-}
 
