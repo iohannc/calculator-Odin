@@ -1,13 +1,19 @@
 :root {
   --button-bg-color: rgb(233, 233, 233);
+  --button-hover-color: rgb(214, 212, 212);
+  --button-clicked-color:rgb(185, 185, 185);
   --operator-bg-color: rgb(204, 203, 203);
+  --operator-hover-color: rgb(189, 188, 188);
+  --operator-clicked-color: rgb(156, 156, 156);
 }
 
 html {
   box-sizing: border-box;
 }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   box-sizing: inherit;
 }
 
@@ -22,7 +28,7 @@ body {
   align-items: center;
 }
 
- .result {
+.result {
   border: 1px solid black;
   grid-area: result;
   display: flex;
@@ -31,12 +37,17 @@ body {
   padding: 15px;
   font-size: 2em;
   background-color: rgb(223, 230, 228);
-} 
+}
 
 .nums {
   grid-area: nums;
   display: inherit;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.nums > div:hover,
+.num-zero:hover {
+  background-color: var(--button-hover-color);
 }
 
 .num-zero {
@@ -49,21 +60,28 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--button-bg-color);
+  transition: background-color .05s;
 }
 
 .operators {
   grid-area: operators;
   display: inherit;
-} 
+}
 
 .operators > div {
   background-color: var(--operator-bg-color);
 }
 
+.operators > div:hover,
+.equals:hover,
+.clear:hover,
+.delete:hover {
+  background-color: var(--operator-hover-color);
+}
+
 .equals {
   grid-area: equals;
   background-color: var(--operator-bg-color);
- 
 }
 
 .clear {
@@ -81,14 +99,19 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 85px);
   grid-template-rows: repeat(6, 85px);
-  grid-template-areas: 
-  "result result result result"
-  "clear clear delete equals"
-  "nums nums nums operators"
-  "nums nums nums operators"
-  "nums nums nums operators"
-  "num-zero num-zero num-zero operators"
-  ;
+  grid-template-areas:
+    "result result result result"
+    "clear clear delete equals"
+    "nums nums nums operators"
+    "nums nums nums operators"
+    "nums nums nums operators"
+    "num-zero num-zero num-zero operators";
 }
 
+.btn-clicked {
+  background-color: var(--button-clicked-color) !important;
+}
 
+.operator-clicked {
+  background-color: var(--operator-clicked-color) !important;
+}
