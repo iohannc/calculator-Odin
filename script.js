@@ -92,7 +92,9 @@ for (let btn of operatorButtons) {
       }
     }
     if (resultingValue && !equalsPressed) {
-      resultArea.textContent = resultingValue;
+      if (resultingValue.toString().length > 15) {
+        resultArea.textContent = resultingValue.toExponential(2);
+      } else resultArea.textContent = resultingValue;
     }
     carryOver = Number(resultArea.textContent);
     currentOperator = e.target.dataset.value;
@@ -136,7 +138,9 @@ equalsButton.addEventListener("click", () => {
       );
       break;
   }
-  resultArea.textContent = resultingValue;
+  if (resultingValue.toString().length > 15) {
+    resultArea.textContent = resultingValue.toExponential(2);  
+  } else resultArea.textContent = resultingValue;
   carryOver = resultingValue;
   operatorPressed = false;
   equalsPressed = true;
