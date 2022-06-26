@@ -139,7 +139,7 @@ equalsButton.addEventListener("click", () => {
       break;
   }
   if (resultingValue.toString().length > 15) {
-    resultArea.textContent = resultingValue.toExponential(2);  
+    resultArea.textContent = resultingValue.toExponential(2);
   } else resultArea.textContent = resultingValue;
   carryOver = resultingValue;
   operatorPressed = false;
@@ -156,29 +156,35 @@ clearButton.addEventListener("click", () => {
   equalsPressed = false;
 });
 
+const deleteButton = document.querySelector(".delete");
+deleteButton.addEventListener("click", () => {
+  resultArea.textContent = resultArea.textContent.slice(0, -1);
+});
+
 // ------------------------------
 
 // Animations
-const allButtons = document.querySelectorAll('.btn');
-allButtons.forEach(btn => {
-  btn.addEventListener('click', e => {
+const allButtons = document.querySelectorAll(".btn");
+allButtons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
     const button = e.target;
-    if (button.parentElement.classList.contains('nums')
-    || button.classList.contains('num-zero')) {
-      button.classList.add('btn-clicked');
-    } else if (button.parentElement.classList.contains('operators')) {
-      button.classList.add('operator-clicked');
-    }
-    else {
-      button.classList.add('operator-clicked');
+    if (
+      button.parentElement.classList.contains("nums") ||
+      button.classList.contains("num-zero")
+    ) {
+      button.classList.add("btn-clicked");
+    } else if (button.parentElement.classList.contains("operators")) {
+      button.classList.add("operator-clicked");
+    } else {
+      button.classList.add("operator-clicked");
     }
   });
 });
 
-allButtons.forEach(btn => {
-  btn.addEventListener('transitionend', () => {
-    if (btn.classList.contains('btn-clicked')) {
-      btn.classList.remove('btn-clicked');
-    } else btn.classList.remove('operator-clicked');
+allButtons.forEach((btn) => {
+  btn.addEventListener("transitionend", () => {
+    if (btn.classList.contains("btn-clicked")) {
+      btn.classList.remove("btn-clicked");
+    } else btn.classList.remove("operator-clicked");
   });
 });
