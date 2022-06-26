@@ -35,7 +35,11 @@ for (let btn of numberButtons) {
   btn.addEventListener("click", (e) => {
     if (operatorPressed || equalsPressed) {
       if (operatorPressed) operatorPressed = false;
-      if (equalsPressed) equalsPressed = false;
+      if (equalsPressed) {
+        carryOver = null;
+        resultingValue = null;
+        equalsPressed = false;
+      }
       resultArea.textContent = e.target.dataset.value;
     } else {
       resultArea.textContent += e.target.dataset.value;
@@ -105,6 +109,7 @@ for (let btn of operatorButtons) {
 
 const equalsButton = document.querySelector(".equals");
 equalsButton.addEventListener("click", () => {
+  if (equalsPressed) return;
   switch (currentOperator) {
     case "addition":
       resultingValue = operate(
